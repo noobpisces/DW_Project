@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Inventory_SSAS", "Inventory_SSAS\Inventory_SSAS.dwproj", "{7253EA1A-F8D4-4937-B9F6-99B47AA5F8B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7253EA1A-F8D4-4937-B9F6-99B47AA5F8B1}.Development|Default.ActiveCfg = Development
+		{7253EA1A-F8D4-4937-B9F6-99B47AA5F8B1}.Development|Default.Build.0 = Development
+		{7253EA1A-F8D4-4937-B9F6-99B47AA5F8B1}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4AF31ED-9B7C-4B9A-98A3-C13B3BED20CA}
+	EndGlobalSection
+EndGlobal
