@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/91a3ecda-f548-4ce7-8f26-945c97fef824)# XÂY DỰNG KHO DỮ LIỆU BÁN HÀNG CHO CÔNG TY THIẾT BỊ PHẦN CỨNG - Data Warehouse Project
+# XÂY DỰNG KHO DỮ LIỆU BÁN HÀNG CHO CÔNG TY THIẾT BỊ PHẦN CỨNG - Data Warehouse Project
 ### (Project thực hành về thiết kết kho dữ liệu (xây theo mô hình star schema), dùng hệ quản trị cở sở dữ liệu SQL server, Visual Studio 2019/2022 tích hợp SSIS (SQL Server Integration Services) và SSAS (SQL Server Analysis Services),Power BI để trực quan hóa các thông tin lấy từ Data Warehouse)
 ### (Tất data đều có trong link (Chưa) [DBMS Project - Query Directory](https://github.com/noobpisces/DBMS_Project/tree/master/Database-Management-System-master/Query))
 # Mục Lục
