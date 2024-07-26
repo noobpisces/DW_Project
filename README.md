@@ -439,14 +439,56 @@ SCD chọn historical attribute
 
 
 Historical attributes options chọn RowIsCurrent
- ![Uploading image.png…]()
+ ![image](https://github.com/user-attachments/assets/1dc8ee8f-e0d4-41de-95aa-cae60e1c9384)
 
 
 ### 3.2. Import dữ liệu vào các bảng fact
 
 #### 3.2.1. Fact Sales
   #### a) Load dữ liệu từ nguồn vào `stgSales`
+  ![image](https://github.com/user-attachments/assets/430815d7-60aa-4ee7-b381-be2c0706cddf)
+SRC – Sales_Data chứa dữ liệu cần thiết để đưa vào bảng stgSales
+ ![image](https://github.com/user-attachments/assets/b519f0a3-e7ab-4134-aaee-fa7daf7ffe5d)
+
+![image](https://github.com/user-attachments/assets/0e2d6336-bdbe-4ff5-a47d-46f6bb0efc2a)
+
+
+DST – stgSales
+ ![image](https://github.com/user-attachments/assets/839a39bb-7990-485a-a7be-73f61dcb2867)
+![image](https://github.com/user-attachments/assets/5a885a5b-0698-4cbe-9319-c33093ef3c1e)
+
+ 
+
   #### b) Load dữ liệu vào `Sales_fact`
+  ![image](https://github.com/user-attachments/assets/79603045-0fd7-49de-ac23-1b9fa0d8f8d2)
+SRC – stgSales là bảng stgSales đã load từ trước
+![image](https://github.com/user-attachments/assets/3e760a92-d763-4694-a222-7ebb2b4a78b2)
+Lookup DimProduct ta sẽ map hai ProductID từ hai bảng lại với nhau và lấy ra thuộc tính ProductKey trong bảng DimProduct
+![image](https://github.com/user-attachments/assets/8e39f86d-809d-46de-ab50-f7b6a0d38b53)
+![image](https://github.com/user-attachments/assets/bfaf4e05-fdd2-4b89-87f6-997a5d39b27e)
+Lookup DimCategory ta sẽ map 2 thuộc tính CategoryId trong 2 bảng lại với nhau để lấy ra thuộc tính CategoryKey trong bảng DimCategory
+![image](https://github.com/user-attachments/assets/14015b14-c090-4a3c-8932-08276545751b)
+![image](https://github.com/user-attachments/assets/3ca2c8b5-98b3-4132-8b68-4616e5ecf4ed)
+Lookup DimDate ta sẽ map cột order_date ở bảng stgSales với cột Date trong bảng DimDate để lấy ra DateKey
+ ![image](https://github.com/user-attachments/assets/b2cd23db-41d3-4ab0-862a-9641f3cda6f3)
+![image](https://github.com/user-attachments/assets/3d9685d8-48fe-431a-89a1-e75d13155c09)
+
+ 
+Lookup DimCustomer ta sẽ map cột customer_id trong bảng stgSales với cột CustomerID trong bảng DimCustomer để có thể lấy ra cột CustomerKey
+![image](https://github.com/user-attachments/assets/34aa606d-2a9c-4a61-ba04-1021f49f23cf)
+![image](https://github.com/user-attachments/assets/3cd222f5-a00d-447e-8d07-f10ec4a515a0)
+
+
+ 
+Lookup Dim Empployee ta sẽ map cột employee_id trong bảng stgSales với cột EmployeeID trong bảng DimEmployee
+ ![image](https://github.com/user-attachments/assets/22481df6-a07e-4ed7-bbaf-c5531067f50a)
+
+ 
+Aggregate Ta sẽ lấy những cột cần thiết để đưa vào bảng fact
+ 
+Kết quả
+ 
+
 #### 3.2.2. Fact Product Inventory
   #### a) Load dữ liệu từ nguồn vào `stgInventory`
   #### b) Load dữ liệu vào `Inventory_fact`
