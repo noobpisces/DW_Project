@@ -100,15 +100,98 @@
 
 ## 1. Tổng quan về tập dữ liệu
 
-### 1.1. Nguồn dữ liệu
 
+### 1.1. Nguồn dữ liệu
+Sử dụng tập dữ liệu hardwareStore.csv lấy từ kaggle kết hợp với bốn bảng dữ liệu (order_items,orders,customers,employees )trong OT Database được lấy từ trang web Oracle Tutorial. 
+̵	Đường dẫn tập csv hardwareStore.csv (Đã thêm cột date để phục vụ cho việc tạo data warehouse).
+̵	Đường dẫn tải tập dữ liệu (Chỉ lấy 4 bảng order_items, orders, customers, employees) : OT Oracle Sample Database
 ### 1.2. Mô tả chi tiết tập dữ liệu
 
 #### a) Tập `hardwareStore.csv`
+Tập dữ liệu `hardwareStore.csv` gồm 23 cột và 408,104 dòng với các mô tả như sau:
+
+| Tên cột             | Mô tả                                                       |
+|---------------------|------------------------------------------------------------|
+| Date                | Ngày kiểm kê                                                |
+| CATEGORY_ID         | ID của loại sản phẩm                                        |
+| CATEGORY_NAME       | Tên loại sản phẩm                                          |
+| PRODUCT_ID          | ID của sản phẩm                                             |
+| PRODUCT_NAME        | Tên sản phẩm                                               |
+| DESCRIPTION         | Mô tả sản phẩm                                             |
+| DESCRIPTION - Detail 1 | Mô tả chi tiết sản phẩm                                     |
+| DESCRIPTION - Detail 2 | Mô tả chi tiết sản phẩm                                     |
+| DESCRIPTION - Detail 3 | Mô tả chi tiết sản phẩm                                     |
+| DESCRIPTION - Detail 4 | Mô tả chi tiết sản phẩm                                     |
+| STANDARD_COST       | Giá sản xuất sản phẩm                                      |
+| LIST_PRICE          | Giá niêm yết                                                |
+| COUNTRY_ID          | ID của quốc gia                                             |
+| REGION_ID           | ID của vùng                                                 |
+| LOCATION_ID         | ID của khu vực                                              |
+| WAREHOUSE_ID        | ID của kho                                                   |
+| QUANTITY            | Số lượng sản phẩm                                          |
+| WAREHOUSE_NAME      | Tên kho                                                     |
+| ADDRESS             | Địa chỉ kho                                                 |
+| POSTAL_CODE         | Mã bưu điện                                                 |
+| CITY                | Thành phố                                                   |
+| STATE               | Bang                                                        |
+| COUNTRY_NAME        | Tên đất nước                                                |
 #### b) Bốn bảng dữ liệu (`order_items`, `orders`, `customers`, `employees`) trong OT Database
+#### Bảng `orders`
 
+| Biến          | Mô tả                                                        |
+|---------------|--------------------------------------------------------------|
+| ORDER_ID      | Mã đơn hàng (Khóa chính)                                     |
+| CUSTOMER_ID   | Mã khách hàng (Khóa ngoại trỏ đến `CUSTOMERS(CUSTOMER_ID)`)  |
+| STATUS        | Tình trạng đơn hàng                                          |
+| SALESMAN_ID   | Mã người bán hàng (Khóa ngoại trỏ đến `EMPLOYEES(EMPLOYEE_ID)`) |
+| ORDER_DATE    | Ngày tạo đơn hàng                                            |
+
+**Số dòng:** 105  
+**Số cột:** 5
+
+#### Bảng `order_items`
+
+| Biến          | Mô tả                                                        |
+|---------------|--------------------------------------------------------------|
+| ORDER_ID      | Mã đơn hàng (Khóa ngoại trỏ đến `ORDERS(ORDER_ID)`)          |
+| ITEM_ID       | Thứ tự sản phẩm trong đơn hàng                              |
+| PRODUCT_ID    | Mã sản phẩm (Khóa ngoại trỏ đến `PRODUCTS(PRODUCT_ID)`)      |
+| QUANTITY      | Số lượng sản phẩm được đặt trong đơn hàng                   |
+| UNIT_PRICE    | Đơn giá sản phẩm                                             |
+
+**Số dòng:** 665  
+**Số cột:** 5
+
+#### Bảng `customers`
+
+| Biến          | Mô tả                                                        |
+|---------------|--------------------------------------------------------------|
+| CUSTOMER_ID   | Mã khách hàng (Khóa chính)                                   |
+| NAME          | Tên khách hàng                                              |
+| ADDRESS       | Địa chỉ của khách hàng                                      |
+| WEBSITE       | Địa chỉ website của khách hàng                              |
+| CREDIT_LIMIT  | Hạn mức tín dụng: giới hạn số tiền khách hàng được phép mua |
+
+**Số dòng:** 319  
+**Số cột:** 5
+
+#### Bảng `employees`
+
+| Biến          | Mô tả                                                        |
+|---------------|--------------------------------------------------------------|
+| EMPLOYEE_ID   | Mã nhân viên (Khóa chính)                                   |
+| FIRST_NAME    | Họ nhân viên                                                |
+| LAST_NAME     | Tên nhân viên                                               |
+| EMAIL         | Email của nhân viên                                         |
+| PHONE         | Số điện thoại của nhân viên                                 |
+| HIRE_DATE     | Ngày tuyển dụng làm việc của nhân viên                      |
+| MANAGER_ID    | Mã người quản lý của nhân viên                              |
+| JOB_TITLE     | Vị trí công việc của nhân viên                              |
+
+**Số dòng:** 107  
+**Số cột:** 8
 ### 1.3. Import file CSV vào 1 Table Store trong Database để dễ dàng sử dụng
-
+Để có thể dễ dàng kiểm soát các kiểu dữ liệu khi đưa vào Datawarehouse thì đưa dữ liệu từ file CSV vào table Store để dễ dàng kiểm soát
 ## 2. Giới thiệu các công cụ được sử dụng
 
 ## CHƯƠNG 2: THIẾT KẾ XÂY DỰNG CƠ SỞ DỮ LIỆU TÁC NGHIỆP (OLAP)
